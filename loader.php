@@ -2,9 +2,9 @@
 /*
 Plugin Name: AAWP Obfuscator
 Description: Obfuscate external links from aawp plugin
-Version: 1.0
+Version: 1.1
 Author: Baptiste Lozano
-Copyright 2021 Baptiste Lozano
+Copyright 2025 Baptiste Lozano
 */
 
 define( 'BATLZ_AAWPOBF_LOADER'	, __FILE__ );
@@ -35,7 +35,7 @@ spl_autoload_register( 'batlz_aawpobf_autoloader' );
 function batlz_aawpobf_plugins_loaded(){
 
 	require_once( BATLZ_AAWPOBF_DIR . "/src/functions.php"  );
-	$obfuscator = new batlz_aawpobf\obfuscator();
+	new \batlz_aawpobf\obfuscator();
 		
 }
 add_action( 'plugins_loaded', 'batlz_aawpobf_plugins_loaded' );

@@ -34,6 +34,17 @@ var aawp_open_link = function(event) {
         url += String.fromCharCode(element - batlz_aawpobf_magic_number);
     });
 
+    // Basic URL validation
+    if (!url.match(/^https?:\/\/(www\.)?amazon\.[a-z.]{2,6}\//i)) {
+        console.error('Invalid Amazon URL detected');
+        return false;
+    }
+
+    // Check for javascript: protocol or script injection attempts
+    if (url.toLowerCase().includes('javascript:') || url.toLowerCase().includes('script')) {
+        console.error('Potential malicious URL detected');
+        return false;
+    }
 
                    
     var newWindow = window.open(url, '_blank');                    
